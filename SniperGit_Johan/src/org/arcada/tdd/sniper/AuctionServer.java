@@ -58,7 +58,7 @@ public class AuctionServer {
 	}
 	
 	
-	// there is a bug in this method
+	// fixed the bug
 	public void makeBid(String name, int amount) throws Exception {
 		for (AuctionItem item : this.items) {
 			if (item.name.equals(name)) {
@@ -66,6 +66,7 @@ public class AuctionServer {
 					item.price = amount;
 					item.last_bidder = "AuctionSniper";
 				}
+				return;
 			}
 		}
 		throw new Exception("Item does not exist");		
